@@ -1,0 +1,14 @@
+[
+  {
+    "product_id": "ABC123",
+    "location": "Farm",
+    "details": {
+      "name": "Organic Tomato",
+      "category": "Vegetable",
+      "mfg_date": "2025-04-20",
+      "exp_date": "2025-05-10"
+    }
+  }
+  
+ 
+]
