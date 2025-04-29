@@ -2,6 +2,13 @@ import streamlit as st
 import json
 import datetime
 
+import threading
+from mqtt_handler import start_mqtt
+
+mqtt_thread = threading.Thread(target=start_mqtt)
+mqtt_thread.daemon = True
+mqtt_thread.start()
+
 st.set_page_config(page_title="Supply Chain Tracker", layout="wide")
 
 # Carrega os dados da blockchain local
@@ -26,7 +33,7 @@ for block in chain[1:]:  # ignora bloco gênesis
     product_id = block["data"]["product_id"]
     product_map[product_id] = block["data"]
 
-st.title("📦 Supply Chain DApp (Blockchain Local)")
+st.title("Tucuma Fruit Supply Chain DApp")
 st.markdown("### 🧾 Produtos Registrados")
 
 cols = st.columns(len(product_map))

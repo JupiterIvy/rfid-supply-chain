@@ -23,10 +23,17 @@ class Blockchain:
         return Block(0, time.time(), {"message": "Genesis Block"}, "0")
 
     def add_block(self, data):
-        last_block = self.chain[-1]
+        if self.chain == []:
+            last_block = self.create_genesis_block()
+        else:
+            last_block = self.chain[-1]
+        
         new_block = Block(len(self.chain), time.time(), data, last_block.hash)
-        self.chain.append(new_block)
-        self.save_chain()
+        if new_block.hash not in [block.hash for block in self.chain]:
+            self.chain.append(new_block)
+            self.save_chain()
+        else:
+            print("Block already registered")
 
     def save_chain(self):
         with open("storage.json", "w") as f:
