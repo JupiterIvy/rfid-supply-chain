@@ -1,347 +1,81 @@
 [
   {
     "index": 0,
-    "timestamp": 1745539043.534099,
+    "timestamp": 1746558072.0746167,
     "data": {
       "message": "Genesis Block"
     },
     "previous_hash": "0",
-    "hash": "42ef1e659b34e224e7330903dee89f90ecd0285219d2e8be391b3bf47aef5eb1"
+    "hash": "bef5732b4da2886b23cb3da0d37855ea2a8c63fe3d146b205e8de8806a8c098c"
   },
   {
     "index": 1,
-    "timestamp": 1745539044.4550555,
+    "timestamp": 1746558333.0711215,
     "data": {
       "product_id": "73BB680D",
       "location": "Armazem",
       "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
+        "name": "73BB680D",
+        "category": "fruit"
       }
     },
-    "previous_hash": "42ef1e659b34e224e7330903dee89f90ecd0285219d2e8be391b3bf47aef5eb1",
-    "hash": "a02cb5b70a33a29918b6dca65a1c53cb730a5f63e23da122c327787762797310"
+    "previous_hash": "bef5732b4da2886b23cb3da0d37855ea2a8c63fe3d146b205e8de8806a8c098c",
+    "hash": "8c8bffb3c9bb40569b93f01cbb1e09ed88877c34742d3414c29af54f091582e9"
   },
   {
     "index": 2,
-    "timestamp": 1745539068.3484068,
+    "timestamp": 1746558333.07212,
     "data": {
       "product_id": "73BB680D",
       "location": "Armazem",
       "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
+        "name": "73BB680D",
+        "category": "fruit"
       }
     },
-    "previous_hash": "a02cb5b70a33a29918b6dca65a1c53cb730a5f63e23da122c327787762797310",
-    "hash": "e26803bdb32ace2fcad0bb9fe974f18ebad5a6ebf6a6052cb8a08c4bfcce1239"
+    "previous_hash": "8c8bffb3c9bb40569b93f01cbb1e09ed88877c34742d3414c29af54f091582e9",
+    "hash": "598f4429c4e00cfc20313c6829ae1babac81771bbf618e1cf670b0e53574a313"
   },
   {
     "index": 3,
-    "timestamp": 1745539071.8757408,
+    "timestamp": 1746558409.7101188,
     "data": {
-      "product_id": "73BB680D",
+      "product_id": "83F04D13",
       "location": "Armazem",
       "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
+        "name": "83F04D13",
+        "category": "fruit"
       }
     },
-    "previous_hash": "e26803bdb32ace2fcad0bb9fe974f18ebad5a6ebf6a6052cb8a08c4bfcce1239",
-    "hash": "40a16a1b30d7cd10b03d7b40be9618f6f4f8c70237aec4dd149c09348239e935"
+    "previous_hash": "598f4429c4e00cfc20313c6829ae1babac81771bbf618e1cf670b0e53574a313",
+    "hash": "afa2a65c1cd40b8bda74a59584c2b0f06d962c665611ae001df3a27d2afc2176"
   },
   {
     "index": 4,
-    "timestamp": 1745539306.7807283,
+    "timestamp": 1746558409.7121308,
     "data": {
-      "product_id": "73BB680D",
+      "product_id": "83F04D13",
       "location": "Armazem",
       "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
+        "name": "83F04D13",
+        "category": "fruit"
       }
     },
-    "previous_hash": "40a16a1b30d7cd10b03d7b40be9618f6f4f8c70237aec4dd149c09348239e935",
-    "hash": "bf0ee7ab90ec3a5d7dee542cc1393d65d18a60a0cfc72b11aecf82f3f55bbfbd"
+    "previous_hash": "afa2a65c1cd40b8bda74a59584c2b0f06d962c665611ae001df3a27d2afc2176",
+    "hash": "05b642f1ed40d3aca772141d99085906d6cdca9b45afab04398d0622c68cd507"
   },
   {
     "index": 5,
-    "timestamp": 1745539389.154607,
+    "timestamp": 1746558409.7160027,
     "data": {
-      "product_id": "73BB680D",
+      "product_id": "83F04D13",
       "location": "Armazem",
       "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
+        "name": "83F04D13",
+        "category": "fruit"
       }
     },
-    "previous_hash": "bf0ee7ab90ec3a5d7dee542cc1393d65d18a60a0cfc72b11aecf82f3f55bbfbd",
-    "hash": "29c8b6d1b250397a2ba1652fc5396eea15831d05c8961466a6ff7957bd5624bd"
-  },
-  {
-    "index": 6,
-    "timestamp": 1745539390.9901276,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "29c8b6d1b250397a2ba1652fc5396eea15831d05c8961466a6ff7957bd5624bd",
-    "hash": "bdbde6de2da72b2a16a934aa9ead3a5141236bcac79dd2128b2e68f22abe2064"
-  },
-  {
-    "index": 7,
-    "timestamp": 1745539628.2410674,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "bdbde6de2da72b2a16a934aa9ead3a5141236bcac79dd2128b2e68f22abe2064",
-    "hash": "c8b70594abb6d741ec29a559f0b5f1a7383295aeecfc637edb54a1beee5bb57a"
-  },
-  {
-    "index": 8,
-    "timestamp": 1745539628.2496855,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "c8b70594abb6d741ec29a559f0b5f1a7383295aeecfc637edb54a1beee5bb57a",
-    "hash": "7683e888fcef49405e0d3722533ac75037932f869b1fcc3185356aac37fa9bc9"
-  },
-  {
-    "index": 9,
-    "timestamp": 1745539638.8996956,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "7683e888fcef49405e0d3722533ac75037932f869b1fcc3185356aac37fa9bc9",
-    "hash": "84d8ce335ff3456f50c2e44071d32a1c23863225bc68850c487486dd9978a7fa"
-  },
-  {
-    "index": 10,
-    "timestamp": 1745539651.8752644,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "84d8ce335ff3456f50c2e44071d32a1c23863225bc68850c487486dd9978a7fa",
-    "hash": "775d5700a175df3eccbc11783c1d1b92d76e9b6c002f8a1631bc400c29d0f252"
-  },
-  {
-    "index": 11,
-    "timestamp": 1745540087.6322167,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "775d5700a175df3eccbc11783c1d1b92d76e9b6c002f8a1631bc400c29d0f252",
-    "hash": "77b120ba5d76c4bdae3619db53c1dee1b20e39e9acda63064f081a8941dc6053"
-  },
-  {
-    "index": 12,
-    "timestamp": 1745540087.639241,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "77b120ba5d76c4bdae3619db53c1dee1b20e39e9acda63064f081a8941dc6053",
-    "hash": "e48376462b8d0fb4bedd86998a4ea8524f6373fb7f6a3e9252a480affefe84d0"
-  },
-  {
-    "index": 13,
-    "timestamp": 1745540087.639241,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "e48376462b8d0fb4bedd86998a4ea8524f6373fb7f6a3e9252a480affefe84d0",
-    "hash": "8c319865e5aa05f516bbb328f2fba5cbe469203fb85040455e62390de42e3150"
-  },
-  {
-    "index": 14,
-    "timestamp": 1745540087.6422522,
-    "data": {
-      "product_id": "73BB680D",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "8c319865e5aa05f516bbb328f2fba5cbe469203fb85040455e62390de42e3150",
-    "hash": "b312f1911824ad6e12709984fa4fcd5d462e1d2c60c9afa56cd8b38630fea6d4"
-  },
-  {
-    "index": 15,
-    "timestamp": 1745540090.7095935,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "b312f1911824ad6e12709984fa4fcd5d462e1d2c60c9afa56cd8b38630fea6d4",
-    "hash": "deb00eed521c6c55866c5f3f794f4d65589eb3085b0b8069a87fade42e10c488"
-  },
-  {
-    "index": 16,
-    "timestamp": 1745540090.7135623,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "deb00eed521c6c55866c5f3f794f4d65589eb3085b0b8069a87fade42e10c488",
-    "hash": "a0539bb8f3881dad4c7a10138f7062d6edba68e036ff0a929f58228b861d5ab7"
-  },
-  {
-    "index": 17,
-    "timestamp": 1745540090.7135623,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "a0539bb8f3881dad4c7a10138f7062d6edba68e036ff0a929f58228b861d5ab7",
-    "hash": "4cf79039196db9013db1f87c0806425c4843df5cbae61533fa2a75f72e7868c4"
-  },
-  {
-    "index": 18,
-    "timestamp": 1745540090.7236192,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "4cf79039196db9013db1f87c0806425c4843df5cbae61533fa2a75f72e7868c4",
-    "hash": "404b7ba3e11f111f164da694febe056ac0cbffd3a98fdd6d71c3616ba3a5b236"
-  },
-  {
-    "index": 19,
-    "timestamp": 1745540097.0327191,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "404b7ba3e11f111f164da694febe056ac0cbffd3a98fdd6d71c3616ba3a5b236",
-    "hash": "a1a86161a30fcf4ae74eaf5fd11c6b7b9a243f54e298c0945e3f14b4f05a17be"
-  },
-  {
-    "index": 20,
-    "timestamp": 1745540100.0796366,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "a1a86161a30fcf4ae74eaf5fd11c6b7b9a243f54e298c0945e3f14b4f05a17be",
-    "hash": "c7a5e68fcf8914cdb0e49bbbf64780f7e6d0b3925b5cb76e3dcd8b43c535110d"
-  },
-  {
-    "index": 21,
-    "timestamp": 1745540105.7935958,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "c7a5e68fcf8914cdb0e49bbbf64780f7e6d0b3925b5cb76e3dcd8b43c535110d",
-    "hash": "97606fc98ee1de592a1324ac325b8911107bf45a73bcf16126852e9fa0c6a9f4"
-  },
-  {
-    "index": 22,
-    "timestamp": 1745540119.850794,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "97606fc98ee1de592a1324ac325b8911107bf45a73bcf16126852e9fa0c6a9f4",
-    "hash": "1455e93b35048b2947fec5f36d92b94fce8fe022338b77b24df394cb4517a242"
-  },
-  {
-    "index": 23,
-    "timestamp": 1745540120.7044945,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "1455e93b35048b2947fec5f36d92b94fce8fe022338b77b24df394cb4517a242",
-    "hash": "32c4c1fb1793b6588d27c14ab602653dda8a159629f6874c2fa9cd77d1de4406"
-  },
-  {
-    "index": 24,
-    "timestamp": 1745540120.9514937,
-    "data": {
-      "product_id": "83F04D13",
-      "location": "Armazem 2",
-      "details": {
-        "name": "TAG1",
-        "category": "FRUIT"
-      }
-    },
-    "previous_hash": "32c4c1fb1793b6588d27c14ab602653dda8a159629f6874c2fa9cd77d1de4406",
-    "hash": "ff1f64b73447fbe2f050ebff4336cadc6dab0fd6b36a185ca3d4d09edc96ba0e"
+    "previous_hash": "05b642f1ed40d3aca772141d99085906d6cdca9b45afab04398d0622c68cd507",
+    "hash": "355a273743ef11911a73f14d7639f3be86a00dd1e6bf47f0322d6c72989b59b6"
   }
 ]

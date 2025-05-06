@@ -1,63 +1,67 @@
 import streamlit as st
-import json
 import datetime
+import json
+import os
+from dotenv import load_dotenv
+from web3 import Web3
 
-import threading
-from mqtt_handler import start_mqtt
+load_dotenv(dotenv_path=".env")
 
-mqtt_thread = threading.Thread(target=start_mqtt)
-mqtt_thread.daemon = True
-mqtt_thread.start()
+GANACHE_URL = os.getenv("GANACHE_URL")
+CONTRACT_ADDRESS = os.getenv("CONTRACT_ADDRESS")
+print(CONTRACT_ADDRESS)
+with open("ProductBlockchain_abi.json", "r") as f:
+    CONTRACT_ABI = json.load(f)
+
+w3 = Web3(Web3.HTTPProvider(GANACHE_URL))
+contract = w3.eth.contract(address=CONTRACT_ADDRESS, abi=CONTRACT_ABI)
 
 st.set_page_config(page_title="Supply Chain Tracker", layout="wide")
+st.title("Tucuma Fruit Supply Chain DApp")
 
-# Carrega os dados da blockchain local
-def load_chain():
-    try:
-        with open("storage.json", "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return []
+length = contract.functions.getChainLength().call()
 
-chain = load_chain()
-
-# Evita falhas se o storage estiver vazio ou só com bloco gênesis
-if len(chain) <= 1:
-    st.title("Fruit Supply Chain DApp")
+if length <= 1:
     st.warning("Nenhum produto registrado ainda. Aguardando leitura do RFID...")
     st.stop()
 
-# Indexa os produtos com seu último checkpoint
 product_map = {}
-for block in chain[1:]:  # ignora bloco gênesis
-    product_id = block["data"]["product_id"]
-    product_map[product_id] = block["data"]
 
-st.title("Tucuma Fruit Supply Chain DApp")
-st.markdown("### 🧾 Produtos Registrados")
+for i in range(1, length):  # skip genesis
+    _, ts, pid, location, details_str = contract.functions.getBlock(i).call()
+    details = json.loads(details_str)
+    product_map[pid] = {"location": location, "timestamp": ts, "details": details}
 
 cols = st.columns(len(product_map))
 selected_id = None
 
-# Cards horizontais
-for idx, (product_id, data) in enumerate(product_map.items()):
+for idx, (pid, data) in enumerate(product_map.items()):
     with cols[idx]:
         st.markdown("------")
-        if st.button(f"🔍 {data['details']['name']}", key=product_id):
-            selected_id = product_id
+        if st.button(f"{data['details']['name']}", key=pid):
+            selected_id = pid
         st.write(f"**Local:** {data['location']}")
-        st.write(f"**ID:** `{product_id}`")
+        st.write(f"**ID:** `{pid}`")
         st.markdown("------")
 
-# Exibe histórico ao clicar
 if selected_id:
     st.markdown(f"## Histórico do Produto `{selected_id}`")
-    history = [
-        block for block in chain 
-        if block["data"].get("product_id") == selected_id
-    ]
+    for i in range(1, length):
+        _, ts, pid, location, details_str = contract.functions.getBlock(i).call()
+        if pid != selected_id:
+            continue
+        details = json.loads(details_str)
+        dt = datetime.datetime.fromtimestamp(ts).strftime("%Y-%m-%d %H:%M:%S")
+        st.markdown(f"### 📌 Local: **{location}** — ⏱️ `{dt}`")
+        st.json({
+            "product_id": pid,
+            "location": location,
+            "details": details
+        })
 
-    for block in history:
-        dt = datetime.datetime.fromtimestamp(block["timestamp"]).strftime("%Y-%m-%d %H:%M:%S")
-        st.markdown(f"### 📌 Local: **{block['data']['location']}** — ⏱️ `{dt}`")
-        st.json(block)
+length = contract.functions.getChainLength().call()
+print(f"Number of blocks: {length}")
+
+for i in range(length):
+    block_data = contract.functions.getBlock(i).call()
+    print(block_data)
