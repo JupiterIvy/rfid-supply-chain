@@ -9,6 +9,10 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe("supplychain/rfid")
 
 def on_message(client, userdata, msg):
+    if msg.retain:
+        print("Mensagem retida ignorada:", msg.payload.decode())
+        return  # Ignora mensagens antigas
+
     try:
         payload = json.loads(msg.payload.decode())
         print("Mensagem recebida:", payload)
