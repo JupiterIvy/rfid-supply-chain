@@ -5,8 +5,8 @@
 #include <ArduinoJson.h>
 
 // Configurações da rede Wi-Fi
-const char* ssid = "SSID";
-const char* password = "PASSWORD";
+const char* ssid = "Dj cleiton rasta";
+const char* password = "Mei300301";
 
 // Configurações do broker MQTT
 const char* mqtt_server = "broker.hivemq.com";
@@ -25,7 +25,7 @@ PubSubClient client(espClient);
 
 MFRC522 rfid(SS_PIN, RST_PIN);
 unsigned long lastReadTime = 0;
-String lastCardContent = "";
+String lastCardUID = "";
 
 void setup_wifi() {
   delay(10);
@@ -67,41 +67,26 @@ void setup() {
   Serial.println("Leitor RFID pronto.");
 }
 
-String readCardContent() {
-  byte block = 4; // Bloco onde os dados foram gravados
-  byte buffer[18]; // Buffer para receber dados
-  byte length = 18;
-
-  MFRC522::StatusCode status = rfid.MIFARE_Read(block, buffer, &length);
-
-  if (status != MFRC522::STATUS_OK) {
-    Serial.print("Erro na leitura do bloco: ");
-    Serial.println(rfid.GetStatusCodeName(status));
-    return "";
+String getCardUID() {
+  String uid = "";
+  for (byte i = 0; i < rfid.uid.size; i++) {
+    uid += String(rfid.uid.uidByte[i] < 0x10 ? "0" : "");
+    uid += String(rfid.uid.uidByte[i], HEX);
   }
-
-  String content = "";
-  for (int i = 0; i < 16; i++) { // Um bloco tem 16 bytes
-    if (buffer[i] != 0) {
-      content += (char)buffer[i];
-    }
-  }
-  content.trim(); // Remove espaços vazios no final, se houver
-  return content;
+  uid.toUpperCase();
+  return uid;
 }
 
-void sendMQTTMessage(const String& product_id, const String& name) {
-  StaticJsonDocument<300> doc;
-  
-  doc["product_id"] = product_id;
-  
-  JsonObject details = doc.createNestedObject("details");
-  details["name"] = name;
-  details["category"] = "fruit"; // categoria fixa
-
+void sendMQTTMessage(const String& uid) {
+  StaticJsonDocument<200> doc;
+  doc["product_id"] = uid;
   doc["location"] = reader_location;
 
-  char buffer[512];
+  JsonObject details = doc.createNestedObject("details");
+  details["name"] = uid;
+  details["category"] = "fruit";
+
+  char buffer[256];
   size_t n = serializeJson(doc, buffer);
   client.publish(topic, buffer, n);
 
@@ -119,34 +104,17 @@ void loop() {
     return;
   }
 
-  String cardContent = readCardContent();
-
-  if (cardContent == "") {
-    Serial.println("⚠️ Conteúdo vazio ou erro ao ler a tag.");
-    rfid.PICC_HaltA();
-    return;
-  }
+  String uid = getCardUID();
 
   // Evita leituras duplicadas em menos de 5 segundos
-  if (cardContent == lastCardContent && (millis() - lastReadTime < 5000)) {
-    rfid.PICC_HaltA();
+  if (uid == lastCardUID && (millis() - lastReadTime < 5000)) {
     return;
   }
 
-  lastCardContent = cardContent;
+  lastCardUID = uid;
   lastReadTime = millis();
 
-  int separatorIndex = cardContent.indexOf('\n');
-  if (separatorIndex == -1) {
-    Serial.println("⚠️ Conteúdo inválido! Esperava uma quebra de linha separando product_id e nome.");
-    rfid.PICC_HaltA();
-    return;
-  }
-
-  String product_id = cardContent.substring(0, separatorIndex);
-  String name = cardContent.substring(separatorIndex + 1);
-
-  sendMQTTMessage(product_id, name);
+  sendMQTTMessage(uid);
 
   rfid.PICC_HaltA();
 }
